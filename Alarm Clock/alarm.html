@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm</title>
+    <link rel="stylesheet" href="alarm.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- <h2 >Alarm Clock</h2> -->
+            <p id="currentTime"></p>
+        </div>
+        
+        
+
+        <div class="new">
+            <h3>Set a new Alarm</h3>
+            <div class="setAlarmForm">
+
+                <label for="Date">Enter Date & Time :
+                    <input type="datetime-local" placeholder="Enter date" name="date" id="date">
+                </label> <br> <br>
+
+                <input type="submit" name="submit" id="submit" value="Add Alarm">
+
+             </div>
+        </div>
+
+        <!-- <div class="Alarmringing_in">
+            <h4>Alarm Ringing in : </h4>
+            <p id="show">
+                00 Day(s), 00 hrs, 00 mins, 00 secs.
+            </p>
+        </div> -->
+
+        <div  class="alarmslists">
+            <ul id="alarmsList"></ul>         
+        </div>
+    </div>
+
+
+    <script src="alarm.js"></script>
+</body>
+</html>

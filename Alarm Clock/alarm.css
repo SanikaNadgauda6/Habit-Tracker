@@ -48,8 +48,9 @@ body{
 }
 
 .container .new .setAlarmForm label{
-    /* font-size: 17px; */
     margin-right: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .container .new .setAlarmForm input{
@@ -65,8 +66,7 @@ body{
     color: white;
     font-weight: 600;
     padding: 0.8em;
-    align-items: end;
-    justify-content: space-between;
+    margin-left: 1em;
 }
 
 .Alarmringing_in{    

@@ -1,0 +1,69 @@
+<% habit.forEach(habits => { %>
+    <div class="col-md-8">
+        <div class='shadow-sm rounded mt-3 p-4 bg-white'>
+            <div>
+                <span class="card-header mt-2 rounded">
+                    <%= habits.content %>
+                </span>
+                <!-- Date  -->
+                <span class="card-head2 mt-3 rounded ms-4"><i>Weekly</i></span>
+            </div>
+            <!-- Delete Habit -->
+            <div class='float-end shadow-sm me-2 justify-content-center' style="margin-top: -30px;">
+                <a href="/<%= habits._id %>" class=' btn' id="button"><i class="bi bi-archive-fill icon"></i></a>
+            </div>
+            <div class="col-md-10 justify-content-center habit-days mt-3"
+                style="margin-left: auto; margin-right: auto; width: 100%; padding-top: 30px;">
+                <% days.forEach(day => { let found = false, status = '';
+                    habits.dates.find(function (item, index) {
+                        if (item.date === day.date) {
+                            found = true;
+                            status = item.complete;
+                        }
+                    }); %>
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="circular-progress">
+                                            <div class="value-container">
+                                                <%= day.day %> <br>
+                                                <span>
+                                                    <%= day.date.slice(-2) %>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="pb-3" style="text-align: center;">
+                                        <a href="/habitStatus?id=<%= habits._id %>&date=<%= day.date %>">
+                                            <% if (found && status === 'yes') { %>
+                                                <abbr title="Click to Undone :(">
+                                                    <i class="fa-solid fa-circle-check fa-2x"
+                                                        style="color: green;"></i>
+                                                </abbr>
+                                            <% } else if (found && status === 'no') { %>
+                                                <abbr title="Click for Default Value">
+                                                    <i class="fa-sharp fa-solid fa-circle-xmark fa-2x"
+                                                        style="color: red;"></i>
+                                                </abbr>
+                                            <% } else { %>
+                                                <abbr title="Click to mark Done!">
+                                                    <i class="fa-solid fa-circle-minus fa-2x"></i>
+                                                </abbr>
+                                            <% } %>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+<% }) %>
